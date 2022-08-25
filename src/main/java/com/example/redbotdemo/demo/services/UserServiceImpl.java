@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService {
         dosesOne.add(new Dose(2, 3));
         dosesOne.add(new Dose(3, 2));
         dosesOne.add(new Dose(4, 1));
+        dosesOne.add(new Dose(5, 1));
 
         schedules.add(new Schedule("2022-08-08T15:09:21.687Z", dosesOne));
         schedules.add(new Schedule("2022-08-08T11:29:21.687Z", dosesOne));
@@ -40,6 +41,8 @@ public class UserServiceImpl implements UserService {
         dosesOne.add(new Dose(1, 4));
         dosesOne.add(new Dose(2, 3));
         dosesOne.add(new Dose(3, 2));
+        dosesOne.add(new Dose(4, 2));
+        dosesOne.add(new Dose(5, 2));
 
         schedules.add(new Schedule("2022-08-08T15:09:21.687Z", dosesOne));
         schedules.add(new Schedule("2022-08-08T11:29:21.687Z", dosesOne));
