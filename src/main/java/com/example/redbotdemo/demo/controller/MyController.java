@@ -1,8 +1,8 @@
 package com.example.redbotdemo.demo.controller;
 
 import java.util.HashSet;
-import com.example.redbotdemo.demo.entities.Device;
-import com.example.redbotdemo.demo.services.DeviceService;
+import com.example.redbotdemo.demo.entities.User;
+import com.example.redbotdemo.demo.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,20 +19,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class MyController {
 
     @Autowired
-    private DeviceService deviceService;
+    private UserService userService;
 
-    @GetMapping("/devices")
-    public HashSet<Device> getDevices() {
-        return this.deviceService.getDevices();
+    @GetMapping("/users")
+    public HashSet<User> getUsers() {
+        return this.userService.getUsers();
     }
 
-    @GetMapping("/devices/{deviceID}")
-    public Device getCourseId(@PathVariable("deviceID") String deviceID) {
-        return this.deviceService.getDeviceID(Long.parseLong(deviceID));
+    @GetMapping("/users/{username}")
+    public User getCourseId(@PathVariable("username") String deviceID) {
+        return this.userService.getUserOfName(deviceID);
     }
 
-    @PostMapping("/devices")
-    public boolean addCourse(@RequestBody Device device) {
-        return this.deviceService.addDevice(device);
+    @PostMapping("/user")
+    public boolean addCourse(@RequestBody User user) {
+        return this.userService.addUser(user);
     }
 }

@@ -1,13 +1,12 @@
 package com.example.redbotdemo.demo.entities;
 
 import java.util.HashSet;
-import java.util.Objects;
 
-public class Time {
+public class Schedule {
     String time;
     HashSet<Dose> dose;
 
-    public Time(String time, HashSet<Dose> dose) {
+    public Schedule(String time, HashSet<Dose> dose) {
         this.time = time;
         this.dose = dose;
     }
@@ -28,7 +27,7 @@ public class Time {
         this.dose = dose;
     }
 
-    public Time() {
+    public Schedule() {
     }
 
     @Override
@@ -47,7 +46,7 @@ public class Time {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Time other = (Time) obj;
+        Schedule other = (Schedule) obj;
         if (time == null) {
             if (other.time != null)
                 return false;

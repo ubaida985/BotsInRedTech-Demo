@@ -3,43 +3,38 @@ package com.example.redbotdemo.demo.entities;
 import java.util.Objects;
 
 public class Dose {
-    private String name;
-    private int qty;
+    private int disc;
+    private int count;
 
-    public String getName() {
-        return name;
+    public int getDisc() {
+        return disc;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDisc(int disc) {
+        this.disc = disc;
     }
 
-    public int getQty() {
-        return qty;
+    public int getCount() {
+        return count;
     }
 
-    public void setQty(int qty) {
-        this.qty = qty;
+    public void setCount(int count) {
+        this.count = count;
     }
 
-    public Dose(String name, int qty) {
-        this.name = name;
-        this.qty = qty;
+    public Dose(int disc, int count) {
+        this.disc = disc;
+        this.count = count;
     }
 
     public Dose() {
     }
 
     @Override
-    public String toString() {
-        return "Dose [name=" + name + ", qty=" + qty + "]";
-    }
-
-    @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        result = prime * result + disc;
         return result;
     }
 
@@ -52,10 +47,7 @@ public class Dose {
         if (getClass() != obj.getClass())
             return false;
         Dose other = (Dose) obj;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
+        if (disc != other.disc)
             return false;
         return true;
     }
