@@ -1,8 +1,11 @@
 package com.example.redbotdemo.demo.controller;
 
+import com.example.redbotdemo.demo.entities.Device;
 import java.util.HashSet;
+import java.util.List;
+
 import com.example.redbotdemo.demo.entities.User;
-import com.example.redbotdemo.demo.services.UserService;
+import com.example.redbotdemo.demo.services.DeviceService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,20 +22,30 @@ import org.springframework.web.bind.annotation.RestController;
 public class MyController {
 
     @Autowired
-    private UserService userService;
+    private DeviceService deviceService;
 
-    @GetMapping("/users")
-    public HashSet<User> getUsers() {
-        return this.userService.getUsers();
+    @GetMapping("/devices")
+    public HashSet<Device> getDevices() {
+        return this.deviceService.getDevices();
     }
 
-    @GetMapping("/users/{username}")
-    public User getCourseId(@PathVariable("username") String deviceID) {
-        return this.userService.getUserOfName(deviceID);
+    @GetMapping("/devices/{deviceID}")
+    public Device getDevice(@PathVariable("deviceID") String deviceID) {
+        return this.deviceService.getDeviceOfID(Integer.parseInt(deviceID));
     }
 
-    @PostMapping("/user")
-    public boolean addCourse(@RequestBody User user) {
-        return this.userService.addUser(user);
+    @GetMapping("/devices/{deviceID}/users")
+    public List<User> getUsers(@PathVariable("deviceID") String deviceID) {
+        return this.deviceService.getUserOfDevice(Integer.parseInt(deviceID));
+    }
+
+    @PostMapping("/device")
+    public boolean addDevice(@RequestBody Device device) {
+        return this.deviceService.addDevice(device);
+    }
+
+    @PostMapping("/devices/{deviceID}/user")
+    public boolean addUser(@PathVariable("deviceID") String deviceID, @RequestBody User user) {
+        return this.deviceService.addUser(Integer.parseInt(deviceID), user);
     }
 }

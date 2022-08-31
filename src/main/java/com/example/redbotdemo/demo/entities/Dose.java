@@ -1,7 +1,5 @@
 package com.example.redbotdemo.demo.entities;
 
-import java.util.Objects;
-
 public class Dose {
     private int disc;
     private int count;
