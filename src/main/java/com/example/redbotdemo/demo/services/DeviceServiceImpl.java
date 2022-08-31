@@ -106,7 +106,7 @@ public class DeviceServiceImpl implements DeviceService {
     public boolean addUser(int deviceID, User user) {
         for (Device x : devices) {
             if (x.getDeviceID() == deviceID) {
-                List<User> ans = x.getUsers();
+                List<User> ans = new ArrayList<>(x.getUsers());
                 ans.add(user);
                 x.setUsers(ans);
                 return true;
