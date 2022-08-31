@@ -39,7 +39,7 @@ public class MyController {
         return this.deviceService.getUserOfDevice(Integer.parseInt(deviceID));
     }
 
-    @PostMapping("/device")
+    @PostMapping("/devices")
     public boolean addDevice(@RequestBody Device device) {
         return this.deviceService.addDevice(device);
     }
